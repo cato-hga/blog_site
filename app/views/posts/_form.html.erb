@@ -1,0 +1,11 @@
+<%= form_for @post  do  |form| %>
+  <%= form.text_field :title, placeholder: 'Title' %>
+  <br>
+  <br>
+  <%= form.text_area :body, placeholder: 'Body' %>
+  <br>
+  <br>
+  <%= form.date_field :date, placeholder: 'Date' %>
+  <br>
+  <%= form.submit "Enter" %>
+<% end %>
