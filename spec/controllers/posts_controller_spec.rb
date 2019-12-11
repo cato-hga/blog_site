@@ -6,7 +6,7 @@ RSpec.describe PostsController, type: :controller do
     it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
-    end
+    end 
   end
 
   describe "GET #index" do
@@ -17,10 +17,10 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "GET #show" do
+    let(:post) { create :post }
     it "returns http success" do
-      get :show
+      get :show, params: { id: post.id }
       expect(response).to have_http_status(:success)
     end
   end
-
 end
