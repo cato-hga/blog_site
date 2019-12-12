@@ -50,4 +50,15 @@ RSpec.describe PostsController, type: :controller do
       expect(post.reload.title).to eq "Update Post Title"
     end
   end
+
+  describe "DELETE #destroy" do
+    let!(:post) { create :post }
+
+    it "deletes a post" do
+      expect {
+        delete :destroy, params: { id: post.id }
+      }.to change(Post, :count).by(-1)
+    end
+
+  end
 end
