@@ -26,11 +26,17 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "POST #create" do
-    let(:post) { create :post }
+    post_params = FactoryBot.attributes_for(:post)
 
-    it "should create a new post" do
-      expect { create(:post) }.to change { Post.count }.by(1)
-      expect(response).to have_http_status(:success)
+    it "creates a new post" do
+      expect {
+        post :create, params: { post: post_params }
+      }.to change(Post, :count).by(1)
+    end
+
+    it "gives 302 status" do
+      post :create, params: { post: post_params }
+      expect(response).to have_http_status(302)
     end
   end
 
