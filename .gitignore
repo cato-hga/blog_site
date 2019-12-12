@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+coverage
+echo "coverage" >> .gitignore
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -32,6 +35,5 @@
 
 /.vscode/
 **/.DS_Store
-
-/coverage.data
-/coverage/
+coverage
+echo "coverage" >> .gitignore
