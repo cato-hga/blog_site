@@ -35,5 +35,4 @@ echo "coverage" >> .gitignore
 
 /.vscode/
 **/.DS_Store
-coverage
-echo "coverage" >> .gitignore
+/coverage
