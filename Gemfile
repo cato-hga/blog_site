@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # css framework
 gem "bulma-rails", "~> 0.8.0"
+# wysiwyg editor
+gem 'trix-rails', require: 'trix'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
