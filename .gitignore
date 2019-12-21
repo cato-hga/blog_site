@@ -38,3 +38,4 @@ echo "coverage" >> .gitignore
 /coverage/
 /coverage
 coverage/*
+/public/
