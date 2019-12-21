@@ -39,3 +39,4 @@ echo "coverage" >> .gitignore
 /coverage
 coverage/*
 /public/
+.env
