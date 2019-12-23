@@ -13,6 +13,7 @@
 #
 
 class Post < ApplicationRecord
+    has_one_attached :post_image
     belongs_to :category
     validates_presence_of :title, :body
 end

@@ -1,6 +1,11 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-
+<!-- @post.image.present? will always return true, use attached? to check presence -->
+<% if @post.post_image.attached? %>
+  <p>
+    <strong> Image: </strong>
+    <br>
+    <%= image_tag(@post.post_image)%>
+  </p>
+<% end %>
 <p>
   <strong>Body</strong><br>
   <%= sanitize @post.body %>
