@@ -10,26 +10,28 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-brand">
-          <%= link_to "John Cato", root_path, class: "navbar-item"%>
-        </div>
-        <div class="navbar-start" , style="flex-grow: 1; justify-content: center;">
-          <a class="navbar-item">
-            Home
-          </a>
+    <div class="container has-text-centered">
+      <div class="navbar">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-brand">
+            <%= link_to "John Cato", root_path, class: "navbar-item"%>
+          </div>
+          <div class="navbar-start" , style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item">
+              Home
+            </a>
 
-          <a class="navbar-item">
-            About
-          </a>
+            <a class="navbar-item">
+              About
+            </a>
 
-          <a class="navbar-item">
-            Contact
-          </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </div>  
     <% if flash[:notice]%><p class="notice"><%= flash[:notice] %></p><% end %>
     <% if flash[:alert]%><p class="alert"><%= flash[:alert] %></p><% end %>
     <%= yield %>
