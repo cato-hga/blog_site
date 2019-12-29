@@ -1,5 +1,6 @@
-
-<%= link_to "New Post", new_post_path %>
-<% @posts.each do |post| %>
-  <p> Title: <%= post.title %> </p>
-<% end %>
+<div class="has-text-centered">
+  <%= link_to "New Post", new_post_path %>
+  <% @posts.each do |post| %>
+    <p> Title: <%= post.title %> </p>
+  <% end %>
+</div>  
