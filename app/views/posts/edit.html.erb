@@ -1,0 +1,16 @@
+<%= form_for @post  do  |form| %>
+  <%= form.text_field :title, placeholder: 'Title' %>
+  <br>
+  <br>
+  <strong>Upload a photo:</strong>
+  <br>
+  <%= form.file_field :post_image %>
+  <%= form.trix_editor :body, required: true, autofocus: true %>
+  <br>
+  <br>
+  <%= form.date_field :date, placeholder: 'Date' %>
+  <br>
+  <br>
+  <%= form.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
+  <%= form.submit "Save" %>
+<% end %>

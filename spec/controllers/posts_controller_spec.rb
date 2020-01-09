@@ -51,6 +51,15 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    let(:post) { create :post }
+
+    it "returns http success" do
+      get :edit, params: { id: post.id }
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "DELETE #destroy" do
     let!(:post) { create :post }
 
