@@ -44,6 +44,8 @@ gem "bulma-rails", "~> 0.8.0"
 # wysiwyg editor
 gem 'trix-rails', require: 'trix'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
