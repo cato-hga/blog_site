@@ -1,16 +1,22 @@
 <% if current_user %>
-  <%= link_to 'Sign in', new_user_session_path %>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> 
+  <!-- <%= link_to 'Sign in', new_user_session_path %> !-->
+  <div class="has-text-centered">
+    <%= link_to "New Post", new_post_path %>
+    <br>
+    <br>
+   <% @posts.each do |post| %>
+      <%= link_to "#{post.title}", post_path(post), id: "post-title" %>
+      <br>
+      <br>
+   <% end %>
+  </div>
 <% else %>
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <div class="has-text-centered">
+   <% @posts.each do |post| %>
+      <%= link_to "#{post.title}", post_path(post), id: "post-title" %>
+      <br>
+      <br>
+   <% end %>
+  </div>
 <% end %>
-
-<div class="has-text-centered">
-  <%= link_to "New Post", new_post_path %>
-  <br>
-  <br>
-  <% @posts.each do |post| %>
-    <span> <%= link_to "#{post.title}", post_path(post) %> </span>
-    <br>
-    <br>
-  <% end %>
-</div>  
