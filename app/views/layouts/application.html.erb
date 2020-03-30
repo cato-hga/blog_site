@@ -17,6 +17,9 @@
             <%= link_to "John Cato", root_path, class: "navbar-item"%>
           </div>
           <div class="navbar-start" , style="flex-grow: 1; justify-content: center;">
+            <div class="navbar-brand">
+              <%= link_to "John Cato", root_path, class: "navbar-item"%>
+            </div>
             <a class="navbar-item">
               Home
             </a>
@@ -35,6 +38,5 @@
     <% if flash[:notice]%><p class="notice"><%= flash[:notice] %></p><% end %>
     <% if flash[:alert]%><p class="alert"><%= flash[:alert] %></p><% end %>
     <%= yield %>
-      <%= render 'layouts/footer' %>
   </body>
 </html>
