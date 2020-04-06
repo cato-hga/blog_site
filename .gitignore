@@ -40,3 +40,4 @@ echo "coverage" >> .gitignore
 coverage/*
 /public/
 .env
+/config/local_env.yml
