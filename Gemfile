@@ -6,7 +6,6 @@ ruby '2.6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem "puma", ">= 3.12.4" 
 # Use SCSS for stylesheets
@@ -45,6 +44,8 @@ gem "bulma-rails", "~> 0.8.0"
 gem 'trix-rails', require: 'trix'
 
 gem 'devise'
+
+gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
