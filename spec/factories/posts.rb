@@ -18,5 +18,6 @@ FactoryBot.define do
   factory :post do
     title "New Post"
     body "A body message..."
+    published_at Date.today
   end
 end
