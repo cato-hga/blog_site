@@ -19,4 +19,12 @@ class Post < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :category, optional: true
     validates_presence_of :title, :body
+
+    before_save :check_published_at
+
+    def check_published_at
+    	self.published_at ||= Date.today
+    end
+
+    scope :published, -> { where("published_at <= ?", Date.today) }
 end

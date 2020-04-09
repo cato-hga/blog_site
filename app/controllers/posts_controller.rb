@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.published
   end
 
   def create
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :slug, :date, :category_id, :post_image)
+    params.require(:post).permit(:title, :body, :image, :slug, :date, :category_id, :post_image, :published_at)
   end
 end
