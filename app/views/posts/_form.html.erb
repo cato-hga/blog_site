@@ -8,7 +8,7 @@
   <%= form.trix_editor :body, required: true, autofocus: true %>
   <br>
   <br>
-  <%= form.date_field :date, placeholder: 'Date' %>
+  <%= form.date_field :published_at, placeholder: 'Date' %>
   <br>
   <br>
   <%= form.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>

@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+  before do
+    @user = FactoryBot.create(:user)
+  end
 
   describe "GET #new" do
     it "returns http success" do
+      sign_in @user
       get :new
       expect(response).to have_http_status(:success)
     end 
@@ -29,6 +33,7 @@ RSpec.describe PostsController, type: :controller do
     post_params = FactoryBot.attributes_for(:post)
 
     it "creates a new post" do
+      sign_in @user
       expect {
         post :create, params: { post: post_params }
       }.to change(Post, :count).by(1)
@@ -43,7 +48,8 @@ RSpec.describe PostsController, type: :controller do
   describe "PATCH #update" do
     let(:post) { create :post }
 
-    it "updates a post" do 
+    it "updates a post" do
+      sign_in @user 
       post_params = FactoryBot.attributes_for(:post, title: "Update Post Title")
 
       patch :update, params: { id: post.id, post: post_params }
@@ -55,6 +61,7 @@ RSpec.describe PostsController, type: :controller do
     let(:post) { create :post }
 
     it "returns http success" do
+      sign_in @user
       get :edit, params: { id: post.id }
       expect(response).to have_http_status(:success)
     end
@@ -64,6 +71,7 @@ RSpec.describe PostsController, type: :controller do
     let!(:post) { create :post }
 
     it "deletes a post" do
+      sign_in @user
       expect {
         delete :destroy, params: { id: post.id }
       }.to change(Post, :count).by(-1)
