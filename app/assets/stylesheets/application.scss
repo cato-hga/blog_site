@@ -15,3 +15,13 @@
  *= require_self
  */
  @import "bulma";
+
+ .header {
+  font-size: 115%;
+  font-weight: 300;
+  border-bottom: 1px solid;
+  padding-bottom: 0.5em;
+  text-align: left;
+  width: 44em;
+  margin: 3em auto 2em;
+ }
