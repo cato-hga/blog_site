@@ -17,17 +17,17 @@
             <%= link_to "John Cato", root_path, class: "navbar-item"%>
           </div> !-->
           <div class="navbar-menu">
+            <span id="name-title">
+              <%= link_to "John Cato", root_path, class: "navbar-item title is-4" %>
+            </span>
             <div class="navbar-start" , style="flex-grow: 1; justify-content: center;">
               <div class="navbar-brand">
-                <%= link_to "John Cato", root_path, class: "navbar-item" %>
 
                 <a class="navbar-item">
                   Home
                 </a>
 
-                <a class="navbar-item">
-                  About
-                </a>
+                <%= link_to "About", static_pages_about_path, class: "navbar-item"%>
 
                 <a class="navbar-item">
                   Contact
