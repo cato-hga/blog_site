@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/about'
-  get 'static_pages/contact'
+  scope :static_pages do
+    get '/home', to: 'static_pages#home'
+    get '/about', to: 'static_pages#about'
+    get '/contact', to: 'static_pages#contact'
+  end
   devise_for :users, controllers: { registrations: "registrations"}
   root 'posts#index'
   resources :posts
