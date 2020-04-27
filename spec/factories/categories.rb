@@ -10,6 +10,6 @@
 
 FactoryBot.define do
   factory :category do
-    title "MyText"
+    title { "MyText" }
   end
 end
