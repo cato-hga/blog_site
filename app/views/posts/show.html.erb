@@ -1,15 +1,19 @@
 <!-- @post.image.present? will always return true, use attached? to check presence -->
-<% if @post.post_image.attached? %>
+<div class="site">
+  <strong><%= @post.title %></strong><br>
+
+  <% if @post.post_image.attached? %>
+    <p>
+      <br>
+      <%= image_tag(@post.post_image.variant(resize: "550x550!", auto_orient: true))%>
+    </p>
+  <% end %>
+
   <p>
-    <strong> Image: </strong>
-    <br>
-    <%= image_tag(@post.post_image.variant(resize: "400x400!", auto_orient: true))%>
+    <h4 id="written-on-date">Written on <%= @post.published_at.strftime("%B %d %Y") %></h4>
+    <%= sanitize @post.body %>
   </p>
-<% end %>
-
-<p>
-  <strong>Body</strong><br>
-  <%= sanitize @post.body %>
-</p>
-
-<%= link_to "Edit Post", edit_post_path %>
+  <% if user_signed_in? %>
+    <%= link_to "Edit Post", edit_post_path %>
+  <% end %>
+</div>
