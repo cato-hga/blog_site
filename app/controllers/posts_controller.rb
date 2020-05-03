@@ -14,10 +14,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:notice] = 'Post saved successfully!'
+      flash[:notice] = "Post saved successfully!"
       redirect_to @post
     else
-      flash.now[:alert] = 'Post was unable to save!'
+      flash.now[:alert] = "Post was unable to save!"
       render :new
     end
   end

@@ -54,6 +54,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   # test data gem
   gem 'faker', '~> 1.6', '>= 1.6.3'
+  gem "standard"
 end
 
 group :development do
