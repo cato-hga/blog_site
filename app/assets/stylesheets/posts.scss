@@ -6,6 +6,10 @@
    color: indianred;
  }
 
+ #post h2 {
+  font-size: 1.6em;
+ }
+
  #post h3 {
    text-align: right;
    font-size: 1.4em;
@@ -17,8 +21,8 @@
  }
 
  #post-published-date {
+  width: 100%;
   text-align: right;
-  width: 80%;
   color: lightgrey;
   font-weight: bold;
 }

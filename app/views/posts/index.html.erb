@@ -1,18 +1,23 @@
 <div class="site">
   <div id="post">
     <h3>Posts</h3>
-    <table class="table is-completely-borderless">
-      <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td id="post-title-cell">
-              <%= link_to "#{post.title}", post_path(post), id: "post-title" %>
-            </td>
-            <td id="post-published-date">
-              <%= post.published_at.strftime("%B %d")%>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <% @post_years.each do |year, posts| %>
+      <h2><%= year %></h2>
+      <table class="table is-completely-borderless">
+        <tbody>
+          <% posts.each do |post| %>
+            <tr>
+              <td id="post-title-cell">
+                <br>
+                <%= link_to "#{post.title}", post_path(post), id: "post-title" %>
+              </td>
+              <td id="post-published-date">
+                <%= post.published_at.strftime("%B %d")%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>

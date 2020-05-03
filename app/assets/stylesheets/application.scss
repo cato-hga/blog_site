@@ -14,6 +14,9 @@
  *= require_tree .
  *= require_self
  */
+
+ $footer-background-color: lightgrey;
+ $footer-padding: 10px 0;
  @import "bulma";
 
  .header {
