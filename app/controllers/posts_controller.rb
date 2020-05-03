@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.published
+    @post_years = @posts.group_by { |p| p.created_at.year }
   end
 
   def create

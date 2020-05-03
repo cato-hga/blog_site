@@ -8,9 +8,4 @@
 
 Post.destroy_all
 
-7.times do
-  Post.create!(
-    title: Faker::Name.name,
-    body: Faker::Name.name,
-  )
-end
+posts = Post.create!([{title: "hksdkhsdkhshkdssdksdkskdskskhdksdskhkshdkshkshdkshdkshdkshdksh", body: "khaskahasahkjsah", created_at: Date.today},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: 1.year.ago},{title: "TESTljsjlsls", body: "khaskahasahkjsah", created_at: Date.today}])
