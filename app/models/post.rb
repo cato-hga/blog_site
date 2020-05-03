@@ -23,7 +23,8 @@ class Post < ApplicationRecord
 	scope :published, -> { where("published_at <= ?", Date.today) }
 
 	before_save :check_published_at
-	private
+
+  private
 
 	def check_published_at
 		self.published_at ||= Date.today
