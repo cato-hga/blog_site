@@ -4,8 +4,7 @@
 
   <% if @post.post_image.attached? %>
     <p>
-      <br>
-      <%= image_tag(@post.post_image.variant(resize: "550x550!", auto_orient: true))%>
+      <%= image_tag(@post.post_image.variant(auto_orient: true))%>
     </p>
   <% end %>
 
