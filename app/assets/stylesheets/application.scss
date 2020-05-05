@@ -17,9 +17,24 @@
 
  @import "bulma";
 
+ body {
+   font-size: 1.3em;
+ }
  #page-container {
   position: relative;
   min-height: 100vh;
+ }
+
+ p {
+   font-family: 'Lato', sans-serif;
+ }
+
+ span, a {
+   font-family: 'Merriweather', sans-serif;
+ }
+
+ h2 {
+   font-family: 'Merriweather', sans-serif;
  }
 
  .header {

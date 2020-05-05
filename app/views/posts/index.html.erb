@@ -8,8 +8,7 @@
           <% posts.each do |post| %>
             <tr>
               <td id="post-title-cell">
-                <br>
-                <%= link_to "#{post.title}", post_path(post), id: "post-title" %>
+                <p><%= link_to "#{post.title}", post_path(post), id: "post-title" %></p>
               </td>
               <td id="post-published-date">
                 <%= post.published_at.strftime("%B %d")%>
