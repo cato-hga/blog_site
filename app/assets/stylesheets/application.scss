@@ -15,11 +15,9 @@
  *= require_self
  */
 
+ @import "trix";
  @import "bulma";
 
- body {
-   font-size: 1.3em;
- }
  #page-container {
   position: relative;
   min-height: 100vh;

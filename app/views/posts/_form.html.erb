@@ -5,6 +5,8 @@
   <strong>Upload a photo:</strong>
   <br>
   <%= form.file_field :post_image %>
+  <br>
+  <%= form.label :body %>
   <%= form.trix_editor :body, required: true, autofocus: true %>
   <br>
   <br>
