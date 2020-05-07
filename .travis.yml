@@ -1,0 +1,44 @@
+language: ruby
+rvm:
+- 2.6.0
+sudo: required
+addons:
+  chrome: stable
+  apt:
+    packages:
+    - google-chrome-stable
+before_script:
+- cp config/database.travis.yml config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- RAILS_ENV=test bundle exec rake db:create db:migrate --trace
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start &
+- sleep 3
+before_install:
+- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 --disable-setuid-sandbox --no-sandbox about:blank &
+cache:
+  bundler: true
+services:
+- postgresql
+install:
+- bundle install
+- wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
+- unzip ~/chromedriver_linux64.zip -d ~/
+- rm ~/chromedriver_linux64.zip
+- sudo mv -f ~/chromedriver /usr/local/share/
+- sudo chmod +x /usr/local/share/chromedriver
+- sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+script:
+- whereis google-chrome-stable
+- whereis chromedriver
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: JZc0UPEiSp+x2Mb4KPzUZ7+Frm4e/mlMnIlo/EL2cvxqVvmD/LNJyh1UC9HMnw70zu/Ycui79oMCdt0ed4JnCOj8erEFIa+ZDDlwGZcoqFHd3Z2EndnS2Ngo0/hc28D6lL4uV6kBLE0zqW+UlgvbVRCFDe09v7jJ8gxum4Rkia1Qq1MU3lW9sWsplaZNOs+TP4i1/q3ml6SkdcNTreBq3QnxCAX22iB4UBmLAnZs7cXpFa/6FgHh8YL8EJk7PuiF7RCzcqIspwhwsJMH9LrpvIL64RdNctazthgRY8UuNpPYe0poC34Q+5iemQQBzneRpBNLJrirynXpb6k879tnk5GAeWNBBjejfzGaA8LLpp5BcfEFbe9vjVQZ/fbSaov6RLTLgw4XNmZVhvVi9BURuqhfMXc+cvftuJr808KgjckrYf3LvXbpAvPeZ1Nv5O9M8hLrxcxjKUCJ8CuKhdu4MOTsoCtMu/q+gsAKiCa5JaVLWT3aG4db8A/sl3q2g/6slJJq5V3NatvEKDc89W5y3mw+vMESp+MevxKa1mJpmDb/nscPU8zuUp1I/TMlHJw6y6gXRX4jzwTwhUr1tUW58z/RDglgIzMQ2nco4qkOKhiAnxvYpY+I61xrooXCP6jnkkHdB9uKV2cOGOrt9GBUzB1PY8Zhd3ZwnYDg1FZcU8g=
+  run:
+    - "rake db:migrate"
+  app: dry-basin-41966
+  on:
+    repo: cato-hga/blog_site
